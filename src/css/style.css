@@ -1,0 +1,155 @@
+:root {
+    --gap: 12px;
+}
+
+body {
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    margin: 24px;
+    color:#dddddd;
+    background:#1f1f1f;
+}
+
+h1 {
+    font-size: 3.2rem;
+    margin-bottom: var(--gap);
+}
+
+.row {
+    display: grid;
+    gap: var(--gap);
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+}
+
+.col {
+    display: grid;
+    gap: var(--gap);
+}
+
+.card {
+    border: 1px solid #ad64a1;
+    border-radius: 10px;
+    padding: 0.3rem;
+    /* padding: 16px; */
+    background:#5f5f5f;
+    box-shadow:0 1px 22px rgb(198, 98, 255);
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: var(--gap);
+}
+
+legend {
+    font-weight:600;
+    font-size:0.9rem;
+    color:#222;
+    margin-bottom:4px;
+}
+
+.section-title {
+    font-size:0.8rem;
+    font-weight:600;
+    text-transform:uppercase;
+    color:#666;
+    letter-spacing:.03em;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--gap);
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: var(--gap);
+}
+
+.grid-4 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: var(--gap);
+}
+
+label {
+    font-size: 0.8rem;
+    color: #f1f1f1;
+    font-weight:500;
+    display:grid;
+    gap:4px;
+}
+
+input, textarea, select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background: #fff;
+    font-size:0.9rem;
+    font-family:inherit;
+}
+
+textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.controls {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.btn {
+    appearance: none;
+    border: 1px solid #0f172a;
+    background: #0f172a;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.btn.alt {
+    background: #fff;
+    color: #0f172a;
+}
+
+.muted {
+    color: #b8b8b8;
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+
+#qrPreview {
+    display: grid;
+    place-items: center;
+    min-height: 320px;
+    background: #fafafa;
+    border: 1px dashed #ddd;
+    border-radius: 10px;
+}
+.hide {
+    display: none;
+}
+
+@media (max-width: 1100px) {
+    .row {
+        grid-template-columns: 1fr;
+    }
+    
+    hr {
+        border:0;
+        border-top:1px solid #eee;
+        margin:8px 0 4px;
+    }
+}

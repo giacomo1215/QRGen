@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>QRGen</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.jsdelivr.net/npm/qr-code-styling@1.6.0/lib/qr-code-styling.js"></script>
+    <link rel="stylesheet" href="src/css/style.css" />
+</head>
+<body>
+  <h1>QRGen</h1>
+
+  <div class="row">
+    <div class="col card">
+      <fieldset>
+        <legend class="muted">QR Content Type</legend>
+        <div class="controls">
+          <label><input type="radio" name="mode" value="url" checked /> URL</label>
+          <label><input type="radio" name="mode" value="contact" /> Contact (vCard)</label>
+        </div>
+      </fieldset>
+
+      <!-- URL form -->
+      <div id="urlForm" class="col">
+        <label>URL
+          <input id="urlInput" type="url" placeholder="https://example.com" value="https://example.com" />
+        </label>
+      </div>
+
+      <!-- Contact form -->
+      <div id="contactForm" class="col hide">
+
+        <div class="section-title">Identity</div>
+        <div class="grid-4">
+          <label>Prefix
+            <input id="namePrefix" type="text" placeholder="Dr." />
+          </label>
+          <label>First Name
+            <input id="firstName" type="text" placeholder="Ada" />
+          </label>
+          <label>Last Name
+            <input id="lastName" type="text" placeholder="Lovelace" />
+          </label>
+          <label>Suffix
+            <input id="nameSuffix" type="text" placeholder="PhD" />
+          </label>
+        </div>
+
+        <div class="grid-2">
+          <label>Organization
+            <input id="org" type="text" placeholder="Analytical Engines Inc." />
+          </label>
+          <label>Department
+            <input id="dept" type="text" placeholder="R&D Lab" />
+          </label>
+        </div>
+
+        <div class="grid-2">
+          <label>Title (Job Title)
+            <input id="title" type="text" placeholder="Chief Algorithmist" />
+          </label>
+          <label>Role (Responsibility)
+            <input id="role" type="text" placeholder="AI/ML Lead" />
+          </label>
+        </div>
+
+        <div class="grid-3">
+          <label>Birthday
+            <input id="bday" type="date" />
+          </label>
+          <label>Anniversary
+            <input id="anniversary" type="date" />
+          </label>
+          <label>Gender
+            <input id="gender" type="text" placeholder="F/M/X/..." />
+          </label>
+        </div>
+
+        <label>Photo URL
+          <input id="photo" type="url" placeholder="https://example.com/photo.jpg" />
+        </label>
+
+        <hr>
+
+        <div class="section-title">Phone & Email</div>
+        <div class="grid-3">
+          <label>Mobile
+            <input id="phoneMobile" type="tel" placeholder="+39 333 1234567" />
+          </label>
+          <label>Work Phone
+            <input id="phoneWork" type="tel" placeholder="+39 049 1234567" />
+          </label>
+          <label>Home Phone
+            <input id="phoneHome" type="tel" placeholder="+39 049 7654321" />
+          </label>
+        </div>
+
+        <div class="grid-2">
+          <label>Fax
+            <input id="fax" type="tel" placeholder="+39 049 1112223" />
+          </label>
+          <label>IM Handle (WhatsApp/Telegram/etc)
+            <input id="imHandle" type="text" placeholder="whatsapp:+393331234567" />
+          </label>
+        </div>
+
+        <div class="grid-2">
+          <label>Personal Email
+            <input id="emailPersonal" type="email" placeholder="ada@example.com" />
+          </label>
+          <label>Work Email
+            <input id="emailWork" type="email" placeholder="ada@company.com" />
+          </label>
+        </div>
+
+        <hr>
+
+        <div class="section-title">Home Address</div>
+        <div class="grid-3">
+          <label>Street
+            <input id="addrHomeStreet" type="text" placeholder="123 Main St" />
+          </label>
+          <label>City
+            <input id="addrHomeCity" type="text" placeholder="Padova" />
+          </label>
+          <label>Region/State
+            <input id="addrHomeRegion" type="text" placeholder="Veneto" />
+          </label>
+        </div>
+
+        <div class="grid-3">
+          <label>Postal Code
+            <input id="addrHomeZip" type="text" placeholder="35100" />
+          </label>
+          <label>Country
+            <input id="addrHomeCountry" type="text" placeholder="Italy" />
+          </label>
+          <label>Geo (lat,long)
+            <input id="geoHome" type="text" placeholder="45.4064,11.8768" />
+          </label>
+        </div>
+
+        <hr>
+
+        <div class="section-title">Work Address</div>
+        <div class="grid-3">
+          <label>Street
+            <input id="addrWorkStreet" type="text" placeholder="Via Industria 42" />
+          </label>
+          <label>City
+            <input id="addrWorkCity" type="text" placeholder="Rubano" />
+          </label>
+          <label>Region/State
+            <input id="addrWorkRegion" type="text" placeholder="Veneto" />
+          </label>
+        </div>
+
+        <div class="grid-3">
+          <label>Postal Code
+            <input id="addrWorkZip" type="text" placeholder="35030" />
+          </label>
+          <label>Country
+            <input id="addrWorkCountry" type="text" placeholder="Italy" />
+          </label>
+          <label>Time Zone
+            <input id="tz" type="text" placeholder="Europe/Rome" />
+          </label>
+        </div>
+
+        <hr>
+
+        <div class="section-title">Online Profiles</div>
+        <div class="grid-2">
+          <label>Website
+            <input id="urlWebsite" type="url" placeholder="https://example.com" />
+          </label>
+          <label>LinkedIn
+            <input id="linkedin" type="url" placeholder="https://linkedin.com/in/..." />
+          </label>
+        </div>
+
+        <div class="grid-2">
+          <label>Instagram
+            <input id="instagram" type="text" placeholder="@handle" />
+          </label>
+          <label>Custom Note / Tagline
+            <input id="tagline" type="text" placeholder="Generative AI Engineer" />
+          </label>
+        </div>
+
+        <label>Notes
+          <textarea id="note" placeholder="Met at conference… Likes computer vision, towing systems, etc."></textarea>
+        </label>
+
+      </div><!-- /contactForm -->
+
+      <div class="card">
+        <div class="controls">
+          <label>Size (px)
+            <input id="size" type="number" min="120" max="1024" step="20" value="320" />
+          </label>
+          <label>Quiet Zone
+            <input id="margin" type="number" min="0" max="8" step="1" value="2" />
+          </label>
+          <label>Level
+            <select id="ecc">
+              <option value="L">L (7%)</option>
+              <option value="M">M (15%)</option>
+              <option value="Q" selected>Q (25%)</option>
+              <option value="H">H (30%)</option>
+            </select>
+          </label>
+          <button id="refresh" class="btn alt" type="button">Refresh</button>
+        </div>
+      </div>
+
+      <div class="controls">
+        <label>File name
+          <input id="fileName" type="text" value="qr-code" />
+        </label>
+        <button class="btn" data-ext="png"  type="button">Export PNG</button>
+        <button class="btn" data-ext="jpeg" type="button">Export JPEG</button>
+        <button class="btn" data-ext="svg"  type="button">Export SVG</button>
+      </div>
+
+      <p class="muted">
+        This creates a vCard 3.0 QR. Phones usually import name, org, phones, and emails.
+        Long notes / socials may appear in the Notes field of the contact app.
+      </p>
+    </div>
+
+    <div class="col card">
+      <div id="qrPreview" style="background-color: #fafafa;"></div>
+    </div>
+  </div>
+  <script src="src/js/qr.js"></script>
+</body>
+</html>
