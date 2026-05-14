@@ -1,0 +1,12 @@
+{
+  "name": "qrgen",
+  "version": "0.1.0",
+  "description": "Client-side QR code generator",
+  "private": true,
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0"
+  }
+}
