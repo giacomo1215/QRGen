@@ -49,8 +49,8 @@ function buildVCard() {
         note: $("note").value,
     };
 
-    if (typeof buildVCardFromData === 'function') {
-        return buildVCardFromData(data);
+    if (typeof vcard !== 'undefined' && typeof vcard.buildVCardFromData === 'function') {
+        return vcard.buildVCardFromData(data);
     }
 
     // Fallback: if the pure builder isn't loaded, build inline (minimal fallback)
