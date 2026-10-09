@@ -138,6 +138,49 @@ textarea {
     border: 1px dashed #ddd;
     border-radius: 10px;
 }
+
+#batchPreview {
+    min-height: 320px;
+    padding: 12px;
+    background: #fafafa;
+    border: 1px dashed #ddd;
+    border-radius: 10px;
+}
+
+.batch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 16px;
+}
+
+.batch-item {
+    text-align: center;
+    cursor: pointer;
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.batch-item:hover {
+    border-color: #ad64a1;
+}
+
+.batch-item svg, .batch-item canvas {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.batch-label {
+    font-size: 12px;
+    color: #222;
+    word-break: break-all;
+    margin-top: 6px;
+    font-weight: 600;
+}
+
 .hide {
     display: none;
 }

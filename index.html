@@ -5,6 +5,7 @@
     <title>QRGen</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://cdn.jsdelivr.net/npm/qr-code-styling@1.6.0/lib/qr-code-styling.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
     <link rel="stylesheet" href="src/css/style.css" />
 </head>
 <body>
@@ -16,6 +17,7 @@
         <legend class="muted">QR Content Type</legend>
         <div class="controls">
           <label><input type="radio" name="mode" value="url" checked /> URL</label>
+          <label><input type="radio" name="mode" value="batch" /> Batch URLs</label>
           <label><input type="radio" name="mode" value="contact" /> Contact (vCard)</label>
         </div>
       </fieldset>
@@ -25,6 +27,20 @@
         <label>URL
           <input id="urlInput" type="url" placeholder="https://example.com" value="https://example.com" />
         </label>
+      </div>
+
+      <!-- Batch URLs form -->
+      <div id="batchForm" class="col hide">
+        <label>URL Prefix
+          <input id="batchPrefix" type="url" placeholder="https://zeat.eu/public/pdf/4x4/pedane/" />
+        </label>
+        <label>URL Suffix (extension)
+          <input id="batchSuffix" type="text" placeholder=".pdf" />
+        </label>
+        <label>Codes (one per line)
+          <textarea id="batchCodes" rows="8" placeholder="CODE001&#10;CODE002&#10;CODE003"></textarea>
+        </label>
+        <button id="downloadAllBatch" class="btn" type="button">Download All (ZIP)</button>
       </div>
 
       <!-- Contact form -->
@@ -226,11 +242,14 @@
       <p class="muted">
         This creates a vCard 3.0 QR. Phones usually import name, org, phones, and emails.
         Long notes / socials may appear in the Notes field of the contact app.
+        In Batch URLs mode the export buttons download a single ZIP archive containing one PNG per code, named by the code itself.
+        Click a single QR in the grid to download just that one.
       </p>
     </div>
 
     <div class="col card">
       <div id="qrPreview" style="background-color: #fafafa;"></div>
+      <div id="batchPreview" class="hide"></div>
     </div>
   </div>
   <script src="src/js/vcard.js"></script>
